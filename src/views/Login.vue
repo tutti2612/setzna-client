@@ -58,7 +58,9 @@ export default Vue.extend({
   }),
   methods: {
     validate() {
-      (this.$refs.form as Vue & { validate: () => boolean }).validate();
+      if ((this.$refs.form as Vue & { validate: () => boolean }).validate()) {
+        this.$router.push({ name: "Room", params: { name: this.name } });
+      }
     }
   }
 });
