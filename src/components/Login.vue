@@ -10,7 +10,15 @@
               </v-toolbar>
               <v-card-text>
                 <v-form ref="form" v-model="valid">
-                  <v-text-field v-model="name" label="Name" name="name" type="text" :counter="10" :rules="nameRules" required />
+                  <v-text-field
+                    v-model="name"
+                    label="Name"
+                    name="name"
+                    type="text"
+                    :counter="10"
+                    :rules="nameRules"
+                    required
+                  />
 
                   <!-- <v-text-field
                     id="password"
@@ -41,15 +49,16 @@ export default Vue.extend({
 
   data: () => ({
     valid: true,
-    name: '',
+    name: "",
     nameRules: [
-        (v: string) => !!v || 'Name is required',
-        (v: string) => (v && v.length <= 10) || 'Name must be less than 10 characters',
-      ],
+      (v: string) => !!v || "Name is required",
+      (v: string) =>
+        (v && v.length <= 10) || "Name must be less than 10 characters"
+    ]
   }),
   methods: {
     validate() {
-      (this.$refs.form as Vue & { validate: () => boolean }).validate()
+      (this.$refs.form as Vue & { validate: () => boolean }).validate();
     }
   }
 });
