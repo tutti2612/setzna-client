@@ -9,8 +9,20 @@
     </v-content>
     <v-footer color="white" elevation="24" height="auto" fixed>
       <v-container class="textContainer" fluid>
-        <v-textarea rows="1" counter="255" auto-grow outlined name="inputText" v-model="content"></v-textarea>
-        <v-btn class="float-right" color="primary" @click="submit" :disabled="content === ''">Submit</v-btn>
+        <v-row>
+          <v-textarea rows="1" hide-details auto-grow outlined name="inputText" v-model="content"></v-textarea>
+          <v-btn
+            class="ml-2"
+            height="55"
+            depressed
+            small
+            color="primary"
+            @click="submit"
+            :disabled="content === ''"
+          >
+            <v-icon dark>mdi-pencil</v-icon>
+          </v-btn>
+        </v-row>
       </v-container>
     </v-footer>
   </v-app>
@@ -49,9 +61,5 @@ export default Vue.extend({
 <style lang="scss" scoped>
 .cardContainer {
   padding-bottom: 700px;
-}
-.textContainer {
-  padding-left: 0;
-  padding-right: 0;
 }
 </style>
